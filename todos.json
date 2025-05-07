@@ -13,6 +13,42 @@
       "parent": 0,
       "done": true,
       "done_message": "first commit"
+    },
+    {
+      "id": 2,
+      "text": "增加时间戳",
+      "parent": 0,
+      "done": false
+    },
+    {
+      "id": 3,
+      "text": "可选提交",
+      "parent": 0,
+      "done": false
+    },
+    {
+      "id": 4,
+      "text": "rename",
+      "parent": 0,
+      "done": false
+    },
+    {
+      "id": 5,
+      "text": "新增todo时，自动增加时间戳",
+      "parent": 2,
+      "done": false
+    },
+    {
+      "id": 6,
+      "text": "完成todo时，自动增加时间戳",
+      "parent": 2,
+      "done": false
+    },
+    {
+      "id": 7,
+      "text": "优化tapd导入时，解析时间戳",
+      "parent": 2,
+      "done": false
     }
   ]
 }
