@@ -1,4 +1,18 @@
 {
   "meta": {},
-  "todos": []
+  "todos": [
+    {
+      "id": 0,
+      "text": "todo-cli",
+      "parent": null,
+      "done": false
+    },
+    {
+      "id": 1,
+      "text": "first-commit",
+      "parent": 0,
+      "done": true,
+      "done_message": "first commit"
+    }
+  ]
 }
