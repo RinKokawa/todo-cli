@@ -135,6 +135,18 @@
       "parent": 8,
       "done": true,
       "done_message": "已将其改为emoji，并且为了保证对齐，还增加了一个空格"
+    },
+    {
+      "id": 21,
+      "text": "done -m：的时候，需要将节点内容也一起推送，而不是只推送完成任务X ： ",
+      "parent": 15,
+      "done": false
+    },
+    {
+      "id": 22,
+      "text": "list - 优化全半角 : 任何时候，将list中的全角冒号都改成半角的",
+      "parent": 8,
+      "done": false
     }
   ]
 }
