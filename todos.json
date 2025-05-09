@@ -50,19 +50,11 @@
       "parent": 2,
       "done": false
     }
-    ,
-    {
-      "id": 12,
-      "text": "Multilanguage",
+    ,    {
+      "id": 8,
+      "text": "List",
       "parent": 0,
       "done": false
-    },
-    {
-      "id": 13,
-      "text": "Decoupling and Redo",
-      "parent": 0,
-      "done": false
-<<<<<<< HEAD
     },
     {
       "id": 10,
@@ -74,6 +66,11 @@
       "id": 11,
       "text": "add 的时候，默认索引应该从最小可用值开始，而非当前最大值+1。（0除外，0只能自己定义，且默认为根节点）",
       "parent": 9,
+      "done": false
+    }    ,    {
+      "id": 9,
+      "text": "add",
+      "parent": 0,
       "done": false
     }    ,
     {
@@ -87,8 +84,6 @@
       "text": "Decoupling and Redo",
       "parent": 0,
       "done": false
-=======
->>>>>>> 40048e53bdc90f96a3025fba467a0eb56b632719
     }
   ]
 }
