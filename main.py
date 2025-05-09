@@ -41,9 +41,12 @@ def save_data(data):
         json.dump(data, f, indent=2, ensure_ascii=False)
 
 def generate_id(todos):
-    if not todos:
-        return 1
-    return max(item['id'] for item in todos) + 1
+    used_ids = {item['id'] for item in todos}
+    i = 1
+    while i in used_ids:
+        i += 1
+    return i
+
 
 @app.command(help="🧱 初始化 todos.json 文件")
 def init():
@@ -156,9 +159,16 @@ def list(all: bool = typer.Option(False, "--all", "-a", help="是否显示已完
 
     tree = Tree("📌 [bold]Todos[/bold]")
     def add_children(node, parent_id):
-        for item in filter(lambda x: x["parent"] == parent_id, todos):
+        children = [item for item in todos if item["parent"] == parent_id]
+        for item in children:
             if not all and item.get("done"):
-                continue
+                # 如果有未完成的子项，仍然需要显示这个完成的父项
+                has_unfinished_child = any(
+                    (child["parent"] == item["id"] and not child.get("done"))
+                    for child in todos
+                )
+                if not has_unfinished_child:
+                    continue
             status = "[green]✓[/green]" if item.get("done") else "[white]📋️[/white]"
             is_current = " [🎯]" if item["id"] == current_id else ""
             msg = f" 📜 {item.get('done_message')}" if all and item.get("done_message") else ""
