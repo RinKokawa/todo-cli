@@ -169,7 +169,8 @@ def list(all: bool = typer.Option(False, "--all", "-a", help="是否显示已完
                 )
                 if not has_unfinished_child:
                     continue
-            status = "[green]✓[/green]" if item.get("done") else "[white]📋️[/white]"
+            # status = "[green]✓[/green]" if item.get("done") else "[white]📋️[/white]"
+            status = "[green]✔[/green] " if item.get("done") else "[white]📋️[/white]"
             is_current = " [🎯]" if item["id"] == current_id else ""
             msg = f" 📜 {item.get('done_message')}" if all and item.get("done_message") else ""
             branch = node.add(f"{status} [cyan]{item['id']}[/cyan]: {item['text']}{msg}{is_current}")

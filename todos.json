@@ -97,7 +97,44 @@
       "id": 14,
       "text": "testAddMinNum",
       "parent": 10000,
+      "done": true
+    },
+    {
+      "id": 15,
+      "text": "done",
+      "parent": 0,
       "done": false
+    },
+    {
+      "id": 16,
+      "text": "hide - 新增hide命令，用于隐藏并非需要自己完成的需求",
+      "parent": 0,
+      "done": false
+    },
+    {
+      "id": 17,
+      "text": "List命令后接id，则以该id为根节点打印节点树",
+      "parent": 8,
+      "done": false
+    },
+    {
+      "id": 18,
+      "text": "pr - 新增优先级字段(priority)，并且打印列表的时候根据不同优先级打印不同的颜色",
+      "parent": 0,
+      "done": false
+    },
+    {
+      "id": 19,
+      "text": "list 排序：同一个父节点下，应该按照id顺序排列，创建的先后顺序。",
+      "parent": 8,
+      "done": false
+    },
+    {
+      "id": 20,
+      "text": "list - icon：完成的需求应该为一个emoji，而不是单个字符",
+      "parent": 8,
+      "done": true,
+      "done_message": "已将其改为emoji，并且为了保证对齐，还增加了一个空格"
     }
   ]
 }
