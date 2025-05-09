@@ -49,29 +49,18 @@
       "text": "优化tapd导入时，解析时间戳",
       "parent": 2,
       "done": false
-    },
+    }
+    ,
     {
-      "id": 8,
-      "text": "list",
+      "id": 12,
+      "text": "Multilanguage",
       "parent": 0,
       "done": false
     },
     {
-      "id": 9,
-      "text": "add",
+      "id": 13,
+      "text": "Decoupling and Redo",
       "parent": 0,
-      "done": false
-    },
-    {
-      "id": 10,
-      "text": "List 的时候，如果子对象未完成，但是如果父对象已经完成，为了列出这个未完成的子对象，依旧会将这个已完成的父对象加进Tree。",
-      "parent": 8,
-      "done": false
-    },
-    {
-      "id": 11,
-      "text": "add 的时候，默认索引应该从最小可用值开始，而非当前最大值+1。（0除外，0只能自己定义，且默认为根节点）",
-      "parent": 9,
       "done": false
     }
   ]
