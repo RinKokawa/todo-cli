@@ -199,7 +199,9 @@ def done(
                 if git_root:
                     try:
                         subprocess.run(["git", "add", "."], cwd=git_root, check=True)
-                        subprocess.run(["git", "commit", "-m", f"完成任务 {id}：{message}"], cwd=git_root, check=True)
+                        # subprocess.run(["git", "commit", "-m", f"完成任务 {id}：{message}"], cwd=git_root, check=True)
+                        commit_text = f"完成任务 {id}：{item['text']} —— {message}"
+                        subprocess.run(["git", "commit", "-m", commit_text], cwd=git_root, check=True)
                         subprocess.run(["git", "push"], cwd=git_root, check=True)
                         print("✅ Git 已提交变更")
                     except subprocess.CalledProcessError as e:
