@@ -148,6 +148,12 @@
       "text": "list - 优化全半角 : 任何时候，将list中的全角冒号都改成半角的",
       "parent": 8,
       "done": false
+    },
+    {
+      "id": 23,
+      "text": "update - 自动更新最新版本，并根据最新版本的数据结构，重构json",
+      "parent": 0,
+      "done": false
     }
   ]
 }
