@@ -5,7 +5,8 @@ from rich.tree import Tree
 from core.data import load_data
 
 def list(
-    all: bool = typer.Option(False, "--all", "-a", help="是否显示已完成任务")
+    all: bool = typer.Option(False, "--all", "-a", help="是否显示已完成任务"),
+    show_time: bool = typer.Option(False, "--time", "-t", help="是否显示时间戳")
 ):
     data = load_data()
     todos = data["todos"]
@@ -25,8 +26,8 @@ def list(
                     continue
             status = "[green]✔[/green] " if item.get("done") else "[white]📋️[/white]"
             is_current = " [🎯]" if item["id"] == current_id else ""
-            created = f" 🕓{item.get('created_at', '')[:16].replace('T', ' ')}" if item.get("created_at") else ""
-            done = f" ✅{item.get('done_at', '')[:16].replace('T', ' ')}" if all and item.get("done_at") else ""
+            created = f" 🕓{item.get('created_at', '')[:16].replace('T', ' ')}" if show_time and item.get("created_at") else ""
+            done = f" ✅{item.get('done_at', '')[:16].replace('T', ' ')}" if show_time and item.get("done_at") else ""
             msg = f" 📜 {item.get('done_message')}" if all and item.get("done_message") else ""
             branch = node.add(f"{status} [cyan]{item['id']}[/cyan]: {item['text']}{msg}{created}{done}{is_current}")
             add_children(branch, item["id"])
