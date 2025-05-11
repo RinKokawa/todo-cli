@@ -217,6 +217,13 @@
       "parent": 13,
       "done": true,
       "done_message": "已完成import_tapd的拆分"
+    },
+    {
+      "id": 33,
+      "text": "新增新入口app,保留main以防回退,修改bat为app启动",
+      "parent": 13,
+      "done": true,
+      "done_message": "新增新入口app并保留main"
     }
   ]
 }

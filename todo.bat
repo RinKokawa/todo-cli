@@ -1,2 +1,2 @@
 @echo off
-python C:\tools\main.py %*
+python C:\tools\app.py %*
