@@ -24,7 +24,7 @@
     },
     {
       "id": 3,
-      "text": "可选提交",
+      "text": "submit - 提交",
       "parent": 0,
       "done": false
     },
@@ -57,7 +57,7 @@
     },
     {
       "id": 8,
-      "text": "list",
+      "text": "list - 列举",
       "parent": 0,
       "done": false
     },
@@ -88,7 +88,7 @@
     },
     {
       "id": 13,
-      "text": "Decoupling and Redo",
+      "text": "decoupling - 解耦重做",
       "parent": 0,
       "done": false
     },
@@ -158,7 +158,7 @@
     },
     {
       "id": 23,
-      "text": "update - 自动更新最新版本，并根据最新版本的数据结构，重构json",
+      "text": "update - 更新",
       "parent": 0,
       "done": false
     },
@@ -325,7 +325,7 @@
     },
     {
       "id": 45,
-      "text": "自动补全",
+      "text": "complete - 补全",
       "parent": 0,
       "done": false,
       "created_at": "2025-05-11T17:35:30.940052"
@@ -335,6 +335,7 @@
       "text": "redo - 撤销操作",
       "parent": 0,
       "done": false,
+      "quadrant": 1,
       "created_at": "2025-05-11T17:48:43.348164"
     },
     {
