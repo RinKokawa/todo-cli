@@ -417,6 +417,17 @@
       "quadrant": 4,
       "hidden": false,
       "done_at": "2025-05-11T18:39:22.520245"
+    },
+    {
+      "id": 56,
+      "text": "quadrant - 统计增加优先级任务分布",
+      "parent": 48,
+      "done": true,
+      "created_at": "2025-05-11T18:45:10.824899",
+      "quadrant": 2,
+      "hidden": false,
+      "done_at": "2025-05-11T18:46:22.468809",
+      "done_message": "已初始化统计优先级任务分布"
     }
   ]
 }
