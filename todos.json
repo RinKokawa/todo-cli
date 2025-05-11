@@ -189,6 +189,13 @@
       "parent": 13,
       "done": true,
       "done_message": "已完成init的拆分"
+    },
+    {
+      "id": 29,
+      "text": "拆分delete模块，完全基于data",
+      "parent": 13,
+      "done": true,
+      "done_message": "已完成delete的拆分"
     }
   ]
 }
