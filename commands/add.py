@@ -8,7 +8,8 @@ from core.data import load_data, save_data, generate_id
 def add(
     text: str = typer.Argument(..., help="任务内容"),
     parent: Optional[int] = typer.Option(None, "--parent", "-p", help="父任务 ID"),
-    id: Optional[int] = typer.Option(None, "--id", help="指定任务 ID")
+    id: Optional[int] = typer.Option(None, "--id", help="指定任务 ID"),
+    quadrant: int = typer.Option(2, "--quadrant","-q", help="优先级象限：1=🔥紧急重要, 2=🧭重要, 3=📤紧急, 4=❌低优先")
 ):
     data = load_data()
     todos = data["todos"]
@@ -32,7 +33,9 @@ def add(
         "text": text,
         "parent": parent,
         "done": False,
-        "created_at": datetime.now().isoformat()
+        "created_at": datetime.now().isoformat(),
+        "quadrant": quadrant,
+        "hidden": False
     })
     save_data(data)
-    print(f"✅ 已添加 todo [bold]{text}[/bold] (ID: {id}, 父节点: {parent})")
+    print(f"✅ 已添加 todo [bold]{text}[/bold] (ID: {id}, 父节点: {parent}, 象限: {quadrant})")
