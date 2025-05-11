@@ -182,6 +182,13 @@
       "parent": 13,
       "done": true,
       "done_message": "已完成list的拆分"
+    },
+    {
+      "id": 28,
+      "text": "拆分init模块，使用data和DATA_FILE",
+      "parent": 13,
+      "done": true,
+      "done_message": "已完成init的拆分"
     }
   ]
 }
