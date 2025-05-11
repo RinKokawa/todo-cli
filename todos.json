@@ -118,9 +118,11 @@
     },
     {
       "id": 17,
-      "text": "List命令后接id，则以该id为根节点打印节点树",
+      "text": "list id - 以该id为根节点打印节点树",
       "parent": 8,
-      "done": false
+      "done": true,
+      "done_at": "2025-05-11T16:52:11.515170",
+      "done_message": "仅展示该 ID 下的任务及其所有子任务。"
     },
     {
       "id": 18,
