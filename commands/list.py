@@ -29,7 +29,8 @@ def list(
             created = f" 🕓{item.get('created_at', '')[:16].replace('T', ' ')}" if show_time and item.get("created_at") else ""
             done = f" ✅{item.get('done_at', '')[:16].replace('T', ' ')}" if show_time and item.get("done_at") else ""
             msg = f" 📜 {item.get('done_message')}" if all and item.get("done_message") else ""
-            branch = node.add(f"{status} [cyan]{item['id']}[/cyan]: {item['text']}{msg}{created}{done}{is_current}")
+            hidden = " 🙈" if all and item.get("hidden") else ""
+            branch = node.add(f"{status} [cyan]{item['id']}[/cyan]: {item['text']}{msg}{created}{done}{hidden}{is_current}")
             add_children(branch, item["id"])
 
     if root_id is not None:
@@ -45,7 +46,8 @@ def list(
         created = f" 🕓{root.get('created_at', '')[:16].replace('T', ' ')}" if show_time and root.get("created_at") else ""
         done = f" ✅{root.get('done_at', '')[:16].replace('T', ' ')}" if show_time and root.get("done_at") else ""
         msg = f" 📜 {root.get('done_message')}" if all and root.get("done_message") else ""
-        branch = tree.add(f"{status} [cyan]{root['id']}[/cyan]: {root['text']}{msg}{created}{done}{is_current}")
+        hidden = " 🙈" if all and root.get("hidden") else ""
+        branch = tree.add(f"{status} [cyan]{root['id']}[/cyan]: {root['text']}{msg}{created}{done}{hidden}{is_current}")
         add_children(branch, root_id)
     else:
         add_children(tree, None)

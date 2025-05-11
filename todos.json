@@ -313,6 +313,15 @@
       "created_at": "2025-05-11T17:24:06.436353",
       "done_at": "2025-05-11T17:25:01.788381",
       "done_message": "已完成hide"
+    },
+    {
+      "id": 44,
+      "text": "unhide - 取消隐藏条目",
+      "parent": 16,
+      "done": true,
+      "created_at": "2025-05-11T17:25:20.749999",
+      "done_at": "2025-05-11T17:26:40.141701",
+      "done_message": "已增加hide ——unhide，并且list ——a 的时候会标记hide项"
     }
   ]
 }
