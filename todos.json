@@ -428,6 +428,17 @@
       "hidden": false,
       "done_at": "2025-05-11T18:46:22.468809",
       "done_message": "已初始化统计优先级任务分布"
+    },
+    {
+      "id": 57,
+      "text": "list - 默认不渲染优先级颜色,-q时显示",
+      "parent": 8,
+      "done": true,
+      "created_at": "2025-05-11T18:54:10.575388",
+      "quadrant": 2,
+      "hidden": false,
+      "done_at": "2025-05-11T18:56:24.928258",
+      "done_message": "list默认和之前一样,但是-q ——color 和 ——quadrant的时候会渲染完成状态和优先级颜色"
     }
   ]
 }

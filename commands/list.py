@@ -13,6 +13,7 @@ def list(
     only_current: bool = typer.Option(False, "--only-current", help="仅显示当前任务及其子项"),
     only_parentless: bool = typer.Option(False, "--only-parentless", help="仅显示无父任务的顶层任务"),
     only_quadrant: Optional[int] = typer.Option(None, "--only-quadrant", help="仅显示指定象限的任务（1-4）"),
+    color_quadrant: bool = typer.Option(False, "--color", "--quadrant", "-q", help="根据象限颜色高亮显示") ,
     root_id: Optional[int] = typer.Argument(None, help="只展示指定 ID 的任务及其子任务")
 ):
     data = load_data()
@@ -54,22 +55,26 @@ def list(
                     return True
         return False
 
+    def render_line(item):
+        q = item.get("quadrant", 2)
+        icon = quadrant_icon(q) if color_quadrant else ""
+        style = quadrant_style(q) if color_quadrant else None
+        status = "[green]✔[/green] " if item.get("done") else "[white]📋️[/white]"
+        is_current = " [🎯]" if item["id"] == current_id else ""
+        created = f" 🕓{item.get('created_at', '')[:16].replace('T', ' ')}" if show_time and item.get("created_at") else ""
+        done = f" ✅{item.get('done_at', '')[:16].replace('T', ' ')}" if show_time and item.get("done_at") else ""
+        msg = f" 📜 {item.get('done_message')}" if all and item.get("done_message") else ""
+        hidden = " 🙈" if (all or only_hidden) and item.get("hidden") else ""
+        line = f"{icon} [cyan]{item['id']}[/cyan]: {item['text']}{msg}{created}{done}{hidden}{is_current}"
+        return f"[{style}]{status}{line}[/]" if style else f"{status}{line}"
+
     def add_children(node, parent_id):
         children = [item for item in todos if item["parent"] == parent_id]
         for item in children:
             if not should_display(item):
                 if not has_matching_descendants(item["id"]):
                     continue
-            q = item.get("quadrant", 2)
-            icon = quadrant_icon(q)
-            style = quadrant_style(q)
-            status = "[green]✔[/green] " if item.get("done") else "[white]📋️[/white]"
-            is_current = " [🎯]" if item["id"] == current_id else ""
-            created = f" 🕓{item.get('created_at', '')[:16].replace('T', ' ')}" if show_time and item.get("created_at") else ""
-            done = f" ✅{item.get('done_at', '')[:16].replace('T', ' ')}" if show_time and item.get("done_at") else ""
-            msg = f" 📜 {item.get('done_message')}" if all and item.get("done_message") else ""
-            hidden = " 🙈" if (all or only_hidden) and item.get("hidden") else ""
-            branch = node.add(f"[{style}]{icon} [cyan]{item['id']}[/cyan]: {item['text']}{msg}{created}{done}{hidden}{is_current}[/]")
+            branch = node.add(render_line(item))
             add_children(branch, item["id"])
 
     if root_id is not None:
@@ -80,16 +85,7 @@ def list(
         if not should_display(root) and not has_matching_descendants(root_id):
             print(f"⚠️ 该任务不符合筛选条件，如需查看请使用其他参数")
             return
-        q = root.get("quadrant", 2)
-        icon = quadrant_icon(q)
-        style = quadrant_style(q)
-        status = "[green]✔[/green] " if root.get("done") else "[white]📋️[/white]"
-        is_current = " [🎯]" if root["id"] == current_id else ""
-        created = f" 🕓{root.get('created_at', '')[:16].replace('T', ' ')}" if show_time and root.get("created_at") else ""
-        done = f" ✅{root.get('done_at', '')[:16].replace('T', ' ')}" if show_time and root.get("done_at") else ""
-        msg = f" 📜 {root.get('done_message')}" if all and root.get("done_message") else ""
-        hidden = " 🙈" if (all or only_hidden) and root.get("hidden") else ""
-        branch = tree.add(f"[{style}]{icon} [cyan]{root['id']}[/cyan]: {root['text']}{msg}{created}{done}{hidden}{is_current}[/]")
+        branch = tree.add(render_line(root))
         add_children(branch, root_id)
     else:
         add_children(tree, None)
