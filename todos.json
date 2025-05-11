@@ -154,6 +154,13 @@
       "text": "update - 自动更新最新版本，并根据最新版本的数据结构，重构json",
       "parent": 0,
       "done": false
+    },
+    {
+      "id": 24,
+      "text": "拆分data和git子模块",
+      "parent": 13,
+      "done": true,
+      "done_message": "已完成24 --> 拆分add功能"
     }
   ]
 }
