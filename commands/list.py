@@ -26,8 +26,9 @@ def list(
             status = "[green]✔[/green] " if item.get("done") else "[white]📋️[/white]"
             is_current = " [🎯]" if item["id"] == current_id else ""
             created = f" 🕓{item.get('created_at', '')[:16].replace('T', ' ')}" if item.get("created_at") else ""
+            done = f" ✅{item.get('done_at', '')[:16].replace('T', ' ')}" if all and item.get("done_at") else ""
             msg = f" 📜 {item.get('done_message')}" if all and item.get("done_message") else ""
-            branch = node.add(f"{status} [cyan]{item['id']}[/cyan]: {item['text']}{msg}{created}{is_current}")
+            branch = node.add(f"{status} [cyan]{item['id']}[/cyan]: {item['text']}{msg}{created}{done}{is_current}")
             add_children(branch, item["id"])
 
     add_children(tree, None)
