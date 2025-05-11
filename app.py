@@ -8,17 +8,19 @@ from commands.delete import delete as delete_command
 from commands.current import current as current_command
 from commands.change import change as change_command
 from commands.import_tapd import import_tapd as import_tapd_command
-
-# app.py 中追加注册rename
 from commands.rename import rename as rename_command
-
-# app.py 中追加注册search
 from commands.search import search as search_command
-
-# app.py 中追加注册hide
 from commands.hide import hide as hide_command
 
-app = typer.Typer(help="📌 一个简单的 CLI Todo 工具，支持嵌套任务与树形结构展示。")
+app = typer.Typer(
+    help="📌 一个简单的 CLI Todo 工具，支持嵌套任务与树形结构展示。",
+    invoke_without_command=True
+)
+
+@app.callback()
+def main(ctx: typer.Context):
+    if ctx.invoked_subcommand is None:
+        typer.echo(ctx.get_help())
 
 app.command()(list_command)
 app.command()(add_command)
@@ -28,14 +30,9 @@ app.command()(delete_command)
 app.command()(current_command)
 app.command()(change_command)
 app.command()(import_tapd_command)
-
 app.command()(rename_command)
-
 app.command()(search_command)
-
 app.command()(hide_command)
 
-
-
 if __name__ == "__main__":
-    app()
+    app(prog_name="todo")

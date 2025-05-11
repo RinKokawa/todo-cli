@@ -322,6 +322,29 @@
       "created_at": "2025-05-11T17:25:20.749999",
       "done_at": "2025-05-11T17:26:40.141701",
       "done_message": "已增加hide ——unhide，并且list ——a 的时候会标记hide项"
+    },
+    {
+      "id": 45,
+      "text": "自动补全",
+      "parent": 0,
+      "done": false,
+      "created_at": "2025-05-11T17:35:30.940052"
+    },
+    {
+      "id": 46,
+      "text": "redo - 撤销操作",
+      "parent": 0,
+      "done": false,
+      "created_at": "2025-05-11T17:48:43.348164"
+    },
+    {
+      "id": 47,
+      "text": "list - 增加only-hide only-current only-parentless",
+      "parent": 8,
+      "done": true,
+      "created_at": "2025-05-11T18:03:13.678908",
+      "done_at": "2025-05-11T18:03:49.907042",
+      "done_message": "完成list筛选"
     }
   ]
 }
