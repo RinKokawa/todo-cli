@@ -18,7 +18,7 @@
     },
     {
       "id": 2,
-      "text": "增加时间戳",
+      "text": "time - 时间戳",
       "parent": 0,
       "done": false
     },
@@ -30,7 +30,7 @@
     },
     {
       "id": 4,
-      "text": "rename",
+      "text": "rename - 重命名",
       "parent": 0,
       "done": false
     },
@@ -106,13 +106,13 @@
     },
     {
       "id": 15,
-      "text": "done",
+      "text": "done - 完成任务",
       "parent": 0,
       "done": false
     },
     {
       "id": 16,
-      "text": "hide - 新增hide命令，用于隐藏并非需要自己完成的需求",
+      "text": "hide - 隐藏条目",
       "parent": 0,
       "done": false
     },
@@ -132,7 +132,7 @@
     },
     {
       "id": 19,
-      "text": "list 排序：同一个父节点下，应该按照id顺序排列，创建的先后顺序。",
+      "text": "list - 排序：同一个父节点下，应该按照id顺序排列，而非创建的先后顺序。",
       "parent": 8,
       "done": false
     },
@@ -296,6 +296,23 @@
       "created_at": "2025-05-11T16:40:49.417222",
       "done_at": "2025-05-11T16:41:46.785012",
       "done_message": "现支持精确搜索,仍支持模糊搜索"
+    },
+    {
+      "id": 42,
+      "text": "hide test",
+      "parent": 10000,
+      "done": false,
+      "created_at": "2025-05-11T17:18:30.236954",
+      "hidden": true
+    },
+    {
+      "id": 43,
+      "text": "hide - 初始化hide功能 hide id 可以隐藏条目",
+      "parent": 16,
+      "done": true,
+      "created_at": "2025-05-11T17:24:06.436353",
+      "done_at": "2025-05-11T17:25:01.788381",
+      "done_message": "已完成hide"
     }
   ]
 }

@@ -1,16 +1,14 @@
 # commands/list.py
 import typer
+from typing import Optional
 from rich import print
 from rich.tree import Tree
 from core.data import load_data
-from typing import Optional
 
 def list(
-    all: bool = typer.Option(False, "--all", "-a", help="是否显示已完成任务"),
+    all: bool = typer.Option(False, "--all", "-a", help="是否显示已完成任务和隐藏任务"),
     show_time: bool = typer.Option(False, "--time", "-t", help="是否显示时间戳"),
-
     root_id: Optional[int] = typer.Argument(None, help="只展示指定 ID 的任务及其子任务")
-
 ):
     data = load_data()
     todos = data["todos"]
@@ -18,16 +16,14 @@ def list(
 
     tree = Tree("📌 [bold]Todos[/bold]" if root_id is None else f"📌 [bold]Todo ID {root_id}[/bold]")
 
+    def should_display(item):
+        return all or not item.get("done") and not item.get("hidden")
+
     def add_children(node, parent_id):
         children = [item for item in todos if item["parent"] == parent_id]
         for item in children:
-            if not all and item.get("done"):
-                has_unfinished_child = any(
-                    (child["parent"] == item["id"] and not child.get("done"))
-                    for child in todos
-                )
-                if not has_unfinished_child:
-                    continue
+            if not should_display(item):
+                continue
             status = "[green]✔[/green] " if item.get("done") else "[white]📋️[/white]"
             is_current = " [🎯]" if item["id"] == current_id else ""
             created = f" 🕓{item.get('created_at', '')[:16].replace('T', ' ')}" if show_time and item.get("created_at") else ""
@@ -41,8 +37,8 @@ def list(
         if not root:
             print(f"❌ 未找到 ID: {root_id}")
             return
-        if root.get("done") and not all:
-            print(f"⚠️ 该任务已完成，如需查看请加上 -a 参数")
+        if not should_display(root):
+            print(f"⚠️ 该任务已完成或已隐藏，如需查看请加上 -a 参数")
             return
         status = "[green]✔[/green] " if root.get("done") else "[white]📋️[/white]"
         is_current = " [🎯]" if root["id"] == current_id else ""
