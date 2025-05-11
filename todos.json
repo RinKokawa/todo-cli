@@ -224,6 +224,13 @@
       "parent": 13,
       "done": true,
       "done_message": "新增新入口app并保留main"
+    },
+    {
+      "id": 34,
+      "text": "修改list，使其不需要两层调用",
+      "parent": 13,
+      "done": true,
+      "done_message": "完成修改，更改其他方法"
     }
   ]
 }

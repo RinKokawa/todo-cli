@@ -1,2 +1,2 @@
 @echo off
-python C:\tools\app.py %*
+python "C:\tools\todo\app.py" %*

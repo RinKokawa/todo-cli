@@ -4,8 +4,8 @@ import typer
 from typing import Optional
 from rich import print
 from pathlib import Path
-from ..core.data import load_data, save_data
-from ..core.git import find_git_root, git_commit_and_push
+from core.data import load_data, save_data
+from core.git import find_git_root, git_commit_and_push
 
 app = typer.Typer()
 

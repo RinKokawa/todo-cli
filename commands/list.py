@@ -2,12 +2,11 @@
 import typer
 from rich import print
 from rich.tree import Tree
-from ..core.data import load_data
+from core.data import load_data
 
-app = typer.Typer()
-
-@app.command(help="🌳 以树形结构展示所有待办任务")
-def list(all: bool = typer.Option(False, "--all", "-a", help="是否显示已完成任务")):
+def list(
+    all: bool = typer.Option(False, "--all", "-a", help="是否显示已完成任务")
+):
     data = load_data()
     todos = data["todos"]
     current_id = data.get("meta", {}).get("current")

@@ -2,7 +2,7 @@
 import typer
 from typing import Optional
 from rich import print
-from ..core.data import load_data, save_data, generate_id
+from core.data import load_data, save_data, generate_id
 
 app = typer.Typer()
 

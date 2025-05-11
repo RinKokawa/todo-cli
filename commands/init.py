@@ -1,7 +1,7 @@
 # commands/init.py
 import typer
 from rich import print
-from ..core.data import DATA_FILE, save_data
+from core.data import DATA_FILE, save_data
 
 app = typer.Typer()
 

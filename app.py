@@ -6,7 +6,10 @@ app = typer.Typer(help="📌 一个简单的 CLI Todo 工具，支持嵌套任�
 
 app.add_typer(add.app, name="add")
 app.add_typer(done.app, name="done")
-app.add_typer(list.app, name="list")
+
+from commands.list import list as list_command
+app.command()(list_command)
+
 app.add_typer(init.app, name="init")
 app.add_typer(delete.app, name="delete")
 app.add_typer(current.app, name="current")

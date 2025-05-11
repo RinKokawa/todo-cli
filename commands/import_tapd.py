@@ -3,7 +3,7 @@ import typer
 import csv
 from pathlib import Path
 from rich import print
-from ..core.data import load_data, save_data
+from core.data import load_data, save_data
 
 app = typer.Typer()
 
