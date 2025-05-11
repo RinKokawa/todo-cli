@@ -13,6 +13,8 @@ from commands.search import search as search_command
 from commands.hide import hide as hide_command
 from commands.stats import stats as stats_command
 
+from commands.move import move as move_command
+
 
 app = typer.Typer(
     help="📌 一个简单的 CLI Todo 工具，支持嵌套任务与树形结构展示。",
@@ -36,6 +38,7 @@ app.command()(rename_command)
 app.command()(search_command)
 app.command()(hide_command)
 app.command()(stats_command)
+app.command()(move_command)
 
 
 if __name__ == "__main__":

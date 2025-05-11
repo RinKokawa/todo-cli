@@ -383,10 +383,11 @@
       "id": 52,
       "text": "quadrant_test",
       "parent": 10000,
-      "done": false,
+      "done": true,
       "created_at": "2025-05-11T18:29:25.943356",
       "quadrant": 2,
-      "hidden": false
+      "hidden": false,
+      "done_at": "2025-05-11T18:56:53.501852"
     },
     {
       "id": 53,
@@ -439,6 +440,26 @@
       "hidden": false,
       "done_at": "2025-05-11T18:56:24.928258",
       "done_message": "list默认和之前一样,但是-q ——color 和 ——quadrant的时候会渲染完成状态和优先级颜色"
+    },
+    {
+      "id": 58,
+      "text": "move - 移动",
+      "parent": 0,
+      "done": false,
+      "created_at": "2025-05-11T18:59:48.473372",
+      "quadrant": 2,
+      "hidden": false
+    },
+    {
+      "id": 59,
+      "text": "move - 初始化移动，变更某个节点的父节点",
+      "parent": 58,
+      "done": true,
+      "created_at": "2025-05-11T19:00:38.189378",
+      "quadrant": 2,
+      "hidden": false,
+      "done_at": "2025-05-11T19:03:04.247123",
+      "done_message": "已完成初始化移动 todo move selfId parentId"
     }
   ]
 }
