@@ -1,6 +1,6 @@
 {
   "meta": {
-    "current": 23
+    "current": 22
   },
   "todos": [
     {
@@ -345,6 +345,22 @@
       "created_at": "2025-05-11T18:03:13.678908",
       "done_at": "2025-05-11T18:03:49.907042",
       "done_message": "完成list筛选"
+    },
+    {
+      "id": 48,
+      "text": "stats - 统计",
+      "parent": 0,
+      "done": false,
+      "created_at": "2025-05-11T18:08:29.476771"
+    },
+    {
+      "id": 49,
+      "text": "stats - 初始化统计",
+      "parent": 48,
+      "done": true,
+      "created_at": "2025-05-11T18:11:09.113296",
+      "done_at": "2025-05-11T18:12:03.821584",
+      "done_message": "已完成初始化统计"
     }
   ]
 }

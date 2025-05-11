@@ -11,6 +11,8 @@ from commands.import_tapd import import_tapd as import_tapd_command
 from commands.rename import rename as rename_command
 from commands.search import search as search_command
 from commands.hide import hide as hide_command
+from commands.stats import stats as stats_command
+
 
 app = typer.Typer(
     help="📌 一个简单的 CLI Todo 工具，支持嵌套任务与树形结构展示。",
@@ -33,6 +35,8 @@ app.command()(import_tapd_command)
 app.command()(rename_command)
 app.command()(search_command)
 app.command()(hide_command)
+app.command()(stats_command)
+
 
 if __name__ == "__main__":
     app(prog_name="todo")
