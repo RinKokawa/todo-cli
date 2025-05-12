@@ -648,10 +648,12 @@
       "id": 80,
       "text": "done - 允许批量完成任务",
       "parent": 15,
-      "done": false,
+      "done": true,
       "created_at": "2025-05-12T11:45:43.760400",
       "quadrant": 2,
-      "hidden": false
+      "hidden": false,
+      "done_at": "2025-05-12T18:02:41",
+      "done_message": "补充完成"
     },
     {
       "id": 81,
