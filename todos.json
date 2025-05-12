@@ -499,6 +499,33 @@
       "created_at": "2025-05-12T10:24:01.438852",
       "quadrant": 2,
       "hidden": false
+    },
+    {
+      "id": 64,
+      "text": "done - 允许用户配置空done时提交推送",
+      "parent": 15,
+      "done": false,
+      "created_at": "2025-05-12T10:27:50.454096",
+      "quadrant": 2,
+      "hidden": false
+    },
+    {
+      "id": 65,
+      "text": "done - 允许用户配置-m时不提交推送",
+      "parent": 15,
+      "done": false,
+      "created_at": "2025-05-12T10:28:01.908694",
+      "quadrant": 2,
+      "hidden": false
+    },
+    {
+      "id": 66,
+      "text": "tag - 允许用户在创建时为条目设置tag",
+      "parent": 9,
+      "done": false,
+      "created_at": "2025-05-12T10:29:43.039099",
+      "quadrant": 2,
+      "hidden": false
     }
   ]
 }
