@@ -2,29 +2,25 @@ import typer
 from rich import print
 from core.data import load_data, save_data
 
-
 def hide(
-    id: int = typer.Argument(..., help="要处理的任务 ID"),
-    unhide: bool = typer.Option(False, "--unhide", help="取消隐藏该任务")
+    ids: list[int] = typer.Argument(..., help="要处理的任务 ID，可以多个"),
+    unhide: bool = typer.Option(False, "--unhide", help="取消隐藏这些任务")
 ):
     data = load_data()
     todos = data["todos"]
 
-    found = False
+    found_ids = set()
     for item in todos:
-        # 若旧数据中不存在 hidden 字段，设置为 False
         if "hidden" not in item:
             item["hidden"] = False
 
-        if item["id"] == id:
+        if item["id"] in ids:
             item["hidden"] = not unhide
-            save_data(data)
-            if unhide:
-                print(f"👁️ 已取消隐藏 ID {id}: {item['text']}")
-            else:
-                print(f"🙈 已隐藏 ID {id}: {item['text']}")
-            found = True
-            break
+            found_ids.add(item["id"])
+            action = "👁️ 取消隐藏" if unhide else "🙈 隐藏"
+            print(f"{action} ID {item['id']}: {item['text']}")
 
-    if not found:
-        print(f"❌ 未找到 ID: {id}")
+    if not found_ids:
+        print("❌ 未找到指定的任何 ID")
+    else:
+        save_data(data)
