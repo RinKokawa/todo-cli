@@ -683,6 +683,28 @@
       "hidden": false,
       "done_at": "2025-05-12T11:54:40.918214",
       "done_message": "现已允许批量hide"
+    },
+    {
+      "id": 84,
+      "text": "test_done1",
+      "parent": 10000,
+      "done": true,
+      "created_at": "2025-05-12T17:58:34.124188",
+      "quadrant": 2,
+      "hidden": false,
+      "done_at": "2025-05-12T17:59:03",
+      "done_message": "批量done测试"
+    },
+    {
+      "id": 85,
+      "text": "test_done2",
+      "parent": 10000,
+      "done": true,
+      "created_at": "2025-05-12T17:58:38.056677",
+      "quadrant": 2,
+      "hidden": false,
+      "done_at": "2025-05-12T17:59:03",
+      "done_message": "批量done测试"
     }
   ]
 }
