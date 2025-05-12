@@ -526,6 +526,114 @@
       "created_at": "2025-05-12T10:29:43.039099",
       "quadrant": 2,
       "hidden": false
+    },
+    {
+      "id": 67,
+      "text": "init - 初始化的时候，寻找当前目录下是否有名为todos.json的文件，如有，验证文件格式是否正确。",
+      "parent": 70,
+      "done": false,
+      "created_at": "2025-05-12T11:00:49.573964",
+      "quadrant": 2,
+      "hidden": false
+    },
+    {
+      "id": 69,
+      "text": "core - 新增文件验证",
+      "parent": 68,
+      "done": false,
+      "created_at": "2025-05-12T11:02:25.511861",
+      "quadrant": 2,
+      "hidden": false
+    },
+    {
+      "id": 68,
+      "text": "core - 核心代码",
+      "parent": 0,
+      "done": false,
+      "created_at": "2025-05-12T11:03:57.670313",
+      "quadrant": 2,
+      "hidden": false
+    },
+    {
+      "id": 70,
+      "text": "init - 初始化",
+      "parent": 0,
+      "done": false,
+      "created_at": "2025-05-12T11:04:23.195406",
+      "quadrant": 2,
+      "hidden": false
+    },
+    {
+      "id": 71,
+      "text": "change - 修改id时，如果后id已存在，则询问用户是否交换两个两个id而非报denty",
+      "parent": 73,
+      "done": false,
+      "created_at": "2025-05-12T11:05:53.929770",
+      "quadrant": 2,
+      "hidden": false
+    },
+    {
+      "id": 72,
+      "text": "move - 修改不能将节点移动至0节点的问题",
+      "parent": 58,
+      "done": false,
+      "created_at": "2025-05-12T11:07:30.299745",
+      "quadrant": 2,
+      "hidden": false
+    },
+    {
+      "id": 73,
+      "text": "change - 改变",
+      "parent": 0,
+      "done": false,
+      "created_at": "2025-05-12T11:08:22.960902",
+      "quadrant": 2,
+      "hidden": false
+    },
+    {
+      "id": 74,
+      "text": "type - 节点类型",
+      "parent": 0,
+      "done": false,
+      "created_at": "2025-05-12T11:11:49.897427",
+      "quadrant": 2,
+      "hidden": false
+    },
+    {
+      "id": 75,
+      "text": "根节点",
+      "parent": 74,
+      "done": false,
+      "created_at": "2025-05-12T11:12:08.543583",
+      "quadrant": 2,
+      "hidden": false
+    },
+    {
+      "id": 76,
+      "text": "模块节点",
+      "parent": 74,
+      "done": false,
+      "created_at": "2025-05-12T11:12:14.021213",
+      "quadrant": 2,
+      "hidden": false
+    },
+    {
+      "id": 77,
+      "text": "任务集节点",
+      "parent": 74,
+      "done": false,
+      "created_at": "2025-05-12T11:12:20.683493",
+      "quadrant": 2,
+      "hidden": false
+    },
+    {
+      "id": 78,
+      "text": "任务节点",
+      "parent": 74,
+      "done": false,
+      "created_at": "2025-05-12T11:12:31.886005",
+      "quadrant": 2,
+      "hidden": false
     }
   ]
 }
