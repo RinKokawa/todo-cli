@@ -578,7 +578,7 @@
       "parent": 58,
       "done": false,
       "created_at": "2025-05-12T11:07:30.299745",
-      "quadrant": 2,
+      "quadrant": 1,
       "hidden": false
     },
     {
@@ -633,6 +633,53 @@
       "done": false,
       "created_at": "2025-05-12T11:12:31.886005",
       "quadrant": 2,
+      "hidden": false
+    },
+    {
+      "id": 79,
+      "text": "change - 在change命令里面添加更多快捷修改，比如优先级",
+      "parent": 73,
+      "done": false,
+      "created_at": "2025-05-12T11:43:47.334812",
+      "quadrant": 2,
+      "hidden": false
+    },
+    {
+      "id": 80,
+      "text": "done - 允许批量完成任务",
+      "parent": 15,
+      "done": false,
+      "created_at": "2025-05-12T11:45:43.760400",
+      "quadrant": 2,
+      "hidden": false
+    },
+    {
+      "id": 81,
+      "text": "done - 允许完成一个任务集的所有子任务",
+      "parent": 15,
+      "done": false,
+      "created_at": "2025-05-12T11:46:02.193827",
+      "quadrant": 2,
+      "hidden": false
+    },
+    {
+      "id": 82,
+      "text": "hide - 兼容老项目中，在初始化没有创建hide字段的条目，执行hide的时候新建hide字段",
+      "parent": 16,
+      "done": true,
+      "created_at": "2025-05-12T11:48:51.821067",
+      "quadrant": 1,
+      "hidden": false,
+      "done_at": "2025-05-12T11:49:48.717965",
+      "done_message": "已完成并新增数个需求"
+    },
+    {
+      "id": 83,
+      "text": "hide - 允许批量hide",
+      "parent": 16,
+      "done": false,
+      "created_at": "2025-05-12T11:49:38.164088",
+      "quadrant": 3,
       "hidden": false
     }
   ]
