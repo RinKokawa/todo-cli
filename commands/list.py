@@ -40,7 +40,7 @@ def list(
         if only_done:
             return item.get("done")
         if only_current:
-            return True  #  current 模式下的增强显示逻辑
+            return all or not item.get("done", False) and not item.get("hidden", False)
         if only_parentless:
             return item.get("parent") is None
         return all or not item.get("done") and not item.get("hidden")
