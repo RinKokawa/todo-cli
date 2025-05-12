@@ -461,6 +461,33 @@
       "hidden": false,
       "done_at": "2025-05-11T19:03:04.247123",
       "done_message": "已完成初始化移动 todo move selfId parentId"
+    },
+    {
+      "id": 60,
+      "text": "user - 用户",
+      "parent": 0,
+      "done": false,
+      "created_at": "2025-05-12T09:47:39.013416",
+      "quadrant": 2,
+      "hidden": false
+    },
+    {
+      "id": 61,
+      "text": "default_user - 初始化时创建默认用户",
+      "parent": 60,
+      "done": false,
+      "created_at": "2025-05-12T09:49:40.940068",
+      "quadrant": 3,
+      "hidden": false
+    },
+    {
+      "id": 62,
+      "text": "list - only-current 的时候还应该打印current项的父节点及所有子节点(默认隐藏完成和隐藏内容)",
+      "parent": 8,
+      "done": false,
+      "created_at": "2025-05-12T09:59:06.044418",
+      "quadrant": 3,
+      "hidden": false
     }
   ]
 }
