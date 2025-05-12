@@ -484,9 +484,20 @@
       "id": 62,
       "text": "list - only-current 的时候还应该打印current项的父节点及所有子节点(默认隐藏完成和隐藏内容)",
       "parent": 8,
-      "done": false,
+      "done": true,
       "created_at": "2025-05-12T09:59:06.044418",
       "quadrant": 3,
+      "hidden": false,
+      "done_at": "2025-05-12T10:25:02.666156",
+      "done_message": "已完成并新增需求63"
+    },
+    {
+      "id": 63,
+      "text": "list - layer：新增只打印N层节点，该项可以被用户开启默认。",
+      "parent": 8,
+      "done": false,
+      "created_at": "2025-05-12T10:24:01.438852",
+      "quadrant": 2,
       "hidden": false
     }
   ]

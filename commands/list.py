@@ -1,4 +1,3 @@
-# commands/list.py
 import typer
 from typing import Optional
 from rich import print
@@ -10,17 +9,15 @@ def list(
     show_time: bool = typer.Option(False, "--time", "-t", help="是否显示时间戳"),
     only_hidden: bool = typer.Option(False, "--only-hidden", help="仅显示隐藏任务及其子项"),
     only_done: bool = typer.Option(False, "--only-done", help="仅显示已完成任务"),
-    only_current: bool = typer.Option(False, "--only-current", help="仅显示当前任务及其子项"),
+    only_current: bool = typer.Option(False, "--only-current", help="仅显示当前任务及其父节点与所有子项"),
     only_parentless: bool = typer.Option(False, "--only-parentless", help="仅显示无父任务的顶层任务"),
     only_quadrant: Optional[int] = typer.Option(None, "--only-quadrant", help="仅显示指定象限的任务（1-4）"),
-    color_quadrant: bool = typer.Option(False, "--color", "--quadrant", "-q", help="根据象限颜色高亮显示") ,
+    color_quadrant: bool = typer.Option(False, "--color", "--quadrant", "-q", help="根据象限颜色高亮显示"),
     root_id: Optional[int] = typer.Argument(None, help="只展示指定 ID 的任务及其子任务")
 ):
     data = load_data()
     todos = data["todos"]
     current_id = data.get("meta", {}).get("current")
-
-    tree = Tree("📌 [bold]Todos[/bold]" if root_id is None else f"📌 [bold]Todo ID {root_id}[/bold]")
 
     def quadrant_icon(q):
         return {
@@ -43,7 +40,7 @@ def list(
         if only_done:
             return item.get("done")
         if only_current:
-            return item["id"] == current_id
+            return True  #  current 模式下的增强显示逻辑
         if only_parentless:
             return item.get("parent") is None
         return all or not item.get("done") and not item.get("hidden")
@@ -68,6 +65,20 @@ def list(
         line = f"{icon} [cyan]{item['id']}[/cyan]: {item['text']}{msg}{created}{done}{hidden}{is_current}"
         return f"[{style}]{status}{line}[/]" if style else f"{status}{line}"
 
+    def find_by_id(id):
+        return next((item for item in todos if item["id"] == id), None)
+
+    def find_parents(item):
+        result = []
+        while item.get("parent") is not None:
+            parent = find_by_id(item["parent"])
+            if parent:
+                result.insert(0, parent)
+                item = parent
+            else:
+                break
+        return result
+
     def add_children(node, parent_id):
         children = [item for item in todos if item["parent"] == parent_id]
         for item in children:
@@ -76,6 +87,26 @@ def list(
                     continue
             branch = node.add(render_line(item))
             add_children(branch, item["id"])
+
+    # --only-current
+    if only_current and current_id is not None:
+        current = find_by_id(current_id)
+        if not current:
+            print("❌ 当前任务不存在")
+            raise typer.Exit()
+
+        tree = Tree("🎯 [bold]当前任务视图[/bold]")
+
+        parents = find_parents(current)
+        branch = tree
+        for p in parents:
+            branch = branch.add(render_line(p))
+        current_branch = branch.add(render_line(current))
+        add_children(current_branch, current_id)
+        print(tree)
+        return
+
+    tree = Tree("📌 [bold]Todos[/bold]" if root_id is None else f"📌 [bold]Todo ID {root_id}[/bold]")
 
     if root_id is not None:
         root = next((item for item in todos if item["id"] == root_id), None)
