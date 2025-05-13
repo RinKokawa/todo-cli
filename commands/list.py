@@ -9,7 +9,7 @@ def list(
     show_time: bool = typer.Option(False, "--time", "-t", help="是否显示时间戳"),
     only_hidden: bool = typer.Option(False, "--only-hidden", help="仅显示隐藏任务及其子项"),
     only_done: bool = typer.Option(False, "--only-done", help="仅显示已完成任务"),
-    only_current: bool = typer.Option(False, "--only-current", help="仅显示当前任务及其父节点与所有子项"),
+    only_current: bool = typer.Option(False, "--only-current", "-cur",help="仅显示当前任务及其父节点与所有子项"),
     only_parentless: bool = typer.Option(False, "--only-parentless", help="仅显示无父任务的顶层任务"),
     only_quadrant: Optional[int] = typer.Option(None, "--only-quadrant", help="仅显示指定象限的任务（1-4）"),
     color_quadrant: bool = typer.Option(False, "--color", "--quadrant", "-q", help="根据象限颜色高亮显示"),

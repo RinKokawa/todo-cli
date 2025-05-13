@@ -764,10 +764,11 @@
       "id": 91,
       "text": "upload - 上传pypi",
       "parent": 0,
-      "done": false,
+      "done": true,
       "created_at": "2025-05-13T12:36:59.825494",
       "quadrant": 2,
-      "hidden": false
+      "hidden": false,
+      "done_at": "2025-05-13T13:29:53.051610"
     },
     {
       "id": 92,
@@ -793,6 +794,24 @@
       "parent": 93,
       "done": false,
       "created_at": "2025-05-13T12:44:40.018735",
+      "quadrant": 2,
+      "hidden": false
+    },
+    {
+      "id": 95,
+      "text": "已创建pypi账户",
+      "parent": 91,
+      "done": false,
+      "created_at": "2025-05-13T13:29:40.733175",
+      "quadrant": 2,
+      "hidden": false
+    },
+    {
+      "id": 96,
+      "text": "done - done值为空，但是有-m时，也可以提交，并创建一个新任务并完成，任务标题为信息，提交信息为完成临时任务，放到0节点下",
+      "parent": 15,
+      "done": false,
+      "created_at": "2025-05-13T13:49:39.933495",
       "quadrant": 2,
       "hidden": false
     }
