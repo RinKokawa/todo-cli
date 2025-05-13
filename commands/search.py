@@ -6,6 +6,7 @@ from core.data import load_data
 def search(
     keyword: str = typer.Argument(..., help="搜索关键词（可为 ID 或文本）")
 ):
+    """🔍 查找功能：可通过模糊查找以及id查找"""
     data = load_data()
     todos = data["todos"]
 

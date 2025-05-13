@@ -301,9 +301,10 @@
       "id": 42,
       "text": "hide test",
       "parent": 10000,
-      "done": false,
+      "done": true,
       "created_at": "2025-05-11T17:18:30.236954",
-      "hidden": true
+      "hidden": true,
+      "done_at": "2025-05-13T12:46:04.510325"
     },
     {
       "id": 43,
@@ -538,7 +539,7 @@
     },
     {
       "id": 69,
-      "text": "core - 新增文件验证",
+      "text": "core - 新增文件验证（我要验证什么来着？？）",
       "parent": 68,
       "done": false,
       "created_at": "2025-05-12T11:02:25.511861",
@@ -740,6 +741,60 @@
       "hidden": false,
       "done_at": "2025-05-12T18:22:50.916303",
       "done_message": "已完成"
+    },
+    {
+      "id": 89,
+      "text": "help - 完善help页面",
+      "parent": 0,
+      "done": false,
+      "created_at": "2025-05-13T12:33:22.418052",
+      "quadrant": 2,
+      "hidden": false
+    },
+    {
+      "id": 90,
+      "text": "version - 版本显示以及更新内容",
+      "parent": 0,
+      "done": false,
+      "created_at": "2025-05-13T12:34:41.566189",
+      "quadrant": 2,
+      "hidden": false
+    },
+    {
+      "id": 91,
+      "text": "upload - 上传pypi",
+      "parent": 0,
+      "done": false,
+      "created_at": "2025-05-13T12:36:59.825494",
+      "quadrant": 2,
+      "hidden": false
+    },
+    {
+      "id": 92,
+      "text": "config - 配置",
+      "parent": 0,
+      "done": false,
+      "created_at": "2025-05-13T12:38:45.041379",
+      "quadrant": 2,
+      "hidden": false
+    },
+    {
+      "id": 93,
+      "text": "layout - 层级",
+      "parent": 0,
+      "done": false,
+      "created_at": "2025-05-13T12:39:34.348428",
+      "quadrant": 2,
+      "hidden": false
+    },
+    {
+      "id": 94,
+      "text": "layer - 层级更高的优先列举，同一层级的按照id顺序",
+      "parent": 93,
+      "done": false,
+      "created_at": "2025-05-13T12:44:40.018735",
+      "quadrant": 2,
+      "hidden": false
     }
   ]
 }
