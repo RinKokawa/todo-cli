@@ -1,4 +1,5 @@
 # commands/done.py
+
 import typer
 from typing import Optional
 from rich import print
@@ -17,27 +18,38 @@ def done(
     data = load_data()
     todos = data["todos"]
     found = False
+    updated_text = ""
 
     for item in todos:
         if item["id"] == id:
             item["done"] = True
             found = True
-            print(f"🎉 已标记 ID {id} 为完成：{item['text']}")
+            updated_text = item["text"]
+            print(f"🎉 已标记 ID {id} 为完成：{updated_text}")
             if message:
                 item["done_message"] = message
                 print(f"📜 备注：{message}")
-                git_root = find_git_root(Path("."))
-                if git_root:
-                    try:
-                        subprocess.run(["git", "add", "."], cwd=git_root, check=True)
-                        # ✅ 正确格式化提交信息
-                        commit_message = f"完成任务 {id}：{item['text']} - {message}"
-                        subprocess.run(["git", "commit", "-m", commit_message], cwd=git_root, check=True)
-                    except subprocess.CalledProcessError:
-                        print("⚠️ Git 提交失败")
             break
 
     if not found:
         print(f"❌ 未找到 ID: {id}")
-    else:
-        save_data(data)
+        return
+
+    # ✅ 先保存 todos.json 文件
+    save_data(data)
+
+    if message:
+        git_root = find_git_root(Path("."))
+        if git_root:
+            try:
+                # ✅ 提交所有变更（包括 todos.json 和代码）
+                subprocess.run(["git", "add", "."], cwd=git_root, check=True)
+
+                # ✅ 构造提交信息
+                commit_message = f"完成任务 {id}：{updated_text} - {message}"
+
+                # ✅ 提交
+                subprocess.run(["git", "commit", "-m", commit_message], cwd=git_root, check=True)
+                print("✅ 已提交 Git 变更")
+            except subprocess.CalledProcessError as e:
+                print(f"⚠️ Git 提交失败：{e}")
