@@ -1,31 +1,54 @@
-# commands/stats.py
-import typer
 from rich import print
+from rich.table import Table
 from core.data import load_data
 
 def stats():
-    """📊 统计任务数量：完成、未完成、隐藏、象限分布"""
     data = load_data()
     todos = data["todos"]
 
-    total = len(todos)
-    done = sum(1 for t in todos if t.get("done"))
-    hidden = sum(1 for t in todos if t.get("hidden"))
-    undone = total - done
+    # 初始化象限统计结构
+    quadrant_stats = {
+        1: {"name": "🔥 紧急且重要", "done": 0, "undone": 0},
+        2: {"name": "🧭 不紧急但重要", "done": 0, "undone": 0},
+        3: {"name": "📤 紧急但不重要", "done": 0, "undone": 0},
+        4: {"name": "❌ 不紧急也不重要", "done": 0, "undone": 0},
+    }
 
-    quadrant_counts = {1: 0, 2: 0, 3: 0, 4: 0}
+    total = 0
+    hidden = 0
+
     for t in todos:
-        q = t.get("quadrant", 2)
-        if q in quadrant_counts:
-            quadrant_counts[q] += 1
+        if t.get("hidden"):
+            hidden += 1
+            continue
 
-    print("📊 [bold]任务统计[/bold]")
-    print(f"🧾 总任务数：{total}")
-    print(f"✔ 已完成数：{done}")
-    print(f"📋 未完成数：{undone}")
+        total += 1
+        q = t.get("quadrant", 2)
+        if t.get("done"):
+            quadrant_stats[q]["done"] += 1
+        else:
+            quadrant_stats[q]["undone"] += 1
+
+    # 构建表格
+    table = Table(title="📊 象限任务完成统计", show_lines=True)
+    table.add_column("象限", style="bold magenta")
+    table.add_column("定义", style="bold cyan")
+    table.add_column("✔ 已完成", justify="right", style="green")
+    table.add_column("📋 未完成", justify="right", style="yellow")
+    table.add_column("📌 总数", justify="right", style="bold white")
+
+    for i in range(1, 5):
+        info = quadrant_stats[i]
+        done = info["done"]
+        undone = info["undone"]
+        table.add_row(
+            f"{['🔥', '🧭', '📤', '❌'][i-1]}",
+            info["name"],
+            str(done),
+            str(undone),
+            str(done + undone)
+        )
+
+    print(f"🧾 总任务数：{total + hidden}")
     print(f"🙈 隐藏任务：{hidden}")
-    print("🧭 象限分布：")
-    print(f"  🔥 紧急且重要：{quadrant_counts[1]}")
-    print(f"  🧭 不紧急但重要：{quadrant_counts[2]}")
-    print(f"  📤 紧急但不重要：{quadrant_counts[3]}")
-    print(f"  ❌ 不紧急也不重要：{quadrant_counts[4]}")
+    print(table)

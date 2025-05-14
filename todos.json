@@ -825,6 +825,15 @@
       "hidden": false,
       "done_at": "2025-05-14T14:31:25.978161",
       "done_message": "修改并测试"
+    },
+    {
+      "id": 98,
+      "text": "table - 统计以表格的形式打印出来",
+      "parent": 48,
+      "done": false,
+      "created_at": "2025-05-14T16:58:52.360088",
+      "quadrant": 2,
+      "hidden": false
     }
   ]
 }
