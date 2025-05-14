@@ -35,16 +35,16 @@ def done(
 
     # Git 提交（合并成一条）
     if message:
+        print(f"📜 备注：{message}")
         git_root = find_git_root(Path("."))
         if git_root:
             try:
+                task_text = item["text"]  # ✅ 获取原任务内容
                 subprocess.run(["git", "add", "."], cwd=git_root, check=True)
-                ids_str = ", ".join(str(item["id"]) for item in updated)
-                texts_str = "; ".join(item["text"] for item in updated)
-                commit_msg = f"完成任务 {ids_str}：{message}\n\n{texts_str}"
-                subprocess.run(["git", "commit", "-m", commit_msg], cwd=git_root, check=True)
-                print(f"📦 Git 已提交：完成任务 {ids_str}")
-            except Exception as e:
-                print(f"⚠️ Git 提交失败：{e}")
-        else:
-            print("📁 未找到 Git 仓库，已跳过提交")
+                subprocess.run(
+                    ["git", "commit", "-m", f"完成任务 {id}：{task_text} - {message}"],
+                    cwd=git_root,
+                    check=True
+                )
+            except subprocess.CalledProcessError:
+                print("⚠️ Git 提交失败")
