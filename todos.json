@@ -764,11 +764,10 @@
       "id": 91,
       "text": "upload - 上传pypi",
       "parent": 0,
-      "done": true,
+      "done": false,
       "created_at": "2025-05-13T12:36:59.825494",
       "quadrant": 2,
-      "hidden": false,
-      "done_at": "2025-05-13T13:29:53.051610"
+      "hidden": false
     },
     {
       "id": 92,
@@ -801,10 +800,12 @@
       "id": 95,
       "text": "已创建pypi账户",
       "parent": 91,
-      "done": false,
+      "done": true,
       "created_at": "2025-05-13T13:29:40.733175",
       "quadrant": 2,
-      "hidden": false
+      "hidden": false,
+      "done_at": "2025-05-13T13:29:53.051610",
+      "done_message": "完成创建"
     },
     {
       "id": 96,
