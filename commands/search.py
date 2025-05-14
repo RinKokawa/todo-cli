@@ -22,5 +22,5 @@ def search(
 
     print(f"🔍 找到 {len(found)} 条匹配『{keyword}』的任务：")
     for item in found:
-        status = "✔" if item.get("done") else "📋"
+        status = "✅" if item.get("done") else "📋"
         print(f"{status} [cyan]{item['id']}[/cyan]: {item['text']}")

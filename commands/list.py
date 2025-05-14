@@ -56,11 +56,11 @@ def list(
         q = item.get("quadrant", 2)
         icon = quadrant_icon(q) if color_quadrant else ""
         style = quadrant_style(q) if color_quadrant else None
-        status = "[green]✔[/green] " if item.get("done") else "[white]📋️[/white]"
+        status = "[green]✅[/green]" if item.get("done") else "[white]📋️[/white]"
         is_current = " [🎯]" if item["id"] == current_id else ""
-        created = f" 🕓{item.get('created_at', '')[:16].replace('T', ' ')}" if show_time and item.get("created_at") else ""
-        done = f" ✅{item.get('done_at', '')[:16].replace('T', ' ')}" if show_time and item.get("done_at") else ""
-        msg = f" 📜 {item.get('done_message')}" if all and item.get("done_message") else ""
+        created = f"🕓{item.get('created_at', '')[:16].replace('T', ' ')}" if show_time and item.get("created_at") else ""
+        done = f"✅{item.get('done_at', '')[:16].replace('T', ' ')}" if show_time and item.get("done_at") else ""
+        msg = f"📜 {item.get('done_message')}" if all and item.get("done_message") else ""
         hidden = " 🙈" if (all or only_hidden) and item.get("hidden") else ""
         line = f"{icon} [cyan]{item['id']}[/cyan]: {item['text']}{msg}{created}{done}{hidden}{is_current}"
         return f"[{style}]{status}{line}[/]" if style else f"{status}{line}"
