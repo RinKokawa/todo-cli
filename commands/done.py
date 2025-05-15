@@ -1,7 +1,7 @@
 # commands/done.py
 
 import typer
-from typing import Optional
+from typing import Optional, List
 from rich import print
 from core.data import load_data, save_data
 from core.git import find_git_root
@@ -12,43 +12,44 @@ app = typer.Typer()
 
 @app.command(name="done", help="✅ 标记指定任务为已完成，并可添加备注")
 def done(
-    id: int = typer.Argument(..., help="要标记为完成的任务 ID"),
-    message: Optional[str] = typer.Option(None, "--message", "-m", help="完成备注（带此参数才提交 Git）")
+    ids: List[int] = typer.Argument(..., help="要标记为完成的任务 ID（支持多个）"),
+    message: Optional[str] = typer.Option(None, "--message", "-m", help="完成备注（仅用于 Git 提交）")
 ):
     data = load_data()
     todos = data["todos"]
-    found = False
-    updated_text = ""
+    done_items = []
 
-    for item in todos:
-        if item["id"] == id:
-            item["done"] = True
-            found = True
-            updated_text = item["text"]
-            print(f"🎉 已标记 ID {id} 为完成：{updated_text}")
-            if message:
-                item["done_message"] = message
-                print(f"📜 备注：{message}")
-            break
+    for id_ in ids:
+        found = False
+        for item in todos:
+            if item["id"] == id_:
+                item["done"] = True
+                found = True
+                done_items.append(item)
+                print(f"🎉 已标记 ID {id_} 为完成：{item['text']}")
+                break
+        if not found:
+            print(f"❌ 未找到 ID: {id_}")
 
-    if not found:
-        print(f"❌ 未找到 ID: {id}")
+    if not done_items:
+        print("⚠️ 没有任务被标记完成")
         return
 
-    # ✅ 先保存 todos.json 文件
     save_data(data)
 
     if message:
         git_root = find_git_root(Path("."))
         if git_root:
             try:
-                # ✅ 提交所有变更（包括 todos.json 和代码）
                 subprocess.run(["git", "add", "."], cwd=git_root, check=True)
 
-                # ✅ 构造提交信息
-                commit_message = f"完成任务 {id}：{updated_text} - {message}"
+                # 构造一行式提交信息
+                commit_parts = [
+                    f"完成任务 {item['id']}：{item['text']} - {message}"
+                    for item in done_items
+                ]
+                commit_message = "；".join(commit_parts)
 
-                # ✅ 提交
                 subprocess.run(["git", "commit", "-m", commit_message], cwd=git_root, check=True)
                 print("✅ 已提交 Git 变更")
             except subprocess.CalledProcessError as e:

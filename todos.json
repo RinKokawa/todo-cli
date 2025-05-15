@@ -108,7 +108,7 @@
       "id": 15,
       "text": "done - 完成任务",
       "parent": 0,
-      "done": false
+      "done": true
     },
     {
       "id": 16,
@@ -856,6 +856,15 @@
       "quadrant": 2,
       "hidden": false,
       "done_message": "提交测试"
+    },
+    {
+      "id": 101,
+      "text": "done - 修复批量完成失败的问题",
+      "parent": null,
+      "done": false,
+      "created_at": "2025-05-15T14:47:10.986066",
+      "quadrant": 15,
+      "hidden": false
     }
   ]
 }
