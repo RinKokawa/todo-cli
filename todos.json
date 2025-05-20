@@ -108,7 +108,7 @@
       "id": 15,
       "text": "done - 完成任务",
       "parent": 0,
-      "done": true
+      "done": false
     },
     {
       "id": 16,
@@ -864,6 +864,33 @@
       "done": false,
       "created_at": "2025-05-15T14:47:10.986066",
       "quadrant": 15,
+      "hidden": false
+    },
+    {
+      "id": 102,
+      "text": "done - doneMessage现在不会自动加到json中（但是已有的还是会照常打印到-a）",
+      "parent": 15,
+      "done": false,
+      "created_at": "2025-05-20T16:56:14.688061",
+      "quadrant": 2,
+      "hidden": false
+    },
+    {
+      "id": 103,
+      "text": "list - -q时象限为2的任务太没有辨识度，将已完成的打印为绿色，未完成的打印为蓝色 ",
+      "parent": 8,
+      "done": false,
+      "created_at": "2025-05-20T16:58:05.969679",
+      "quadrant": 2,
+      "hidden": false
+    },
+    {
+      "id": 104,
+      "text": "add - hide 默认不创建hidden字段，除非手动hide了才会创建hidden字段并将其设为true",
+      "parent": 9,
+      "done": false,
+      "created_at": "2025-05-20T17:01:22.430341",
+      "quadrant": 2,
       "hidden": false
     }
   ]
