@@ -897,8 +897,17 @@
       "id": 105,
       "text": "更新ignore 避免上传了打包后相关的东西（setup 可保留） ",
       "parent": 91,
-      "done": false,
+      "done": true,
       "created_at": "2025-05-25T16:15:34.167181",
+      "quadrant": 2,
+      "hidden": false
+    },
+    {
+      "id": 106,
+      "text": "移除之前的todo.bat 因为现在已经可以直接pip install 了",
+      "parent": 91,
+      "done": false,
+      "created_at": "2025-05-26T17:01:02.433715",
       "quadrant": 2,
       "hidden": false
     }

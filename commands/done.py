@@ -15,6 +15,7 @@ def done(
     ids: List[int] = typer.Argument(..., help="要标记为完成的任务 ID（支持多个）"),
     message: Optional[str] = typer.Option(None, "--message", "-m", help="完成备注（仅用于 Git 提交）")
 ):
+    """✅ 完成功能：按照id完成任务，可接msg"""
     data = load_data()
     todos = data["todos"]
     done_items = []

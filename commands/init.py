@@ -7,6 +7,7 @@ app = typer.Typer()
 
 @app.command(help="🧱 初始化 todos.json 文件")
 def init():
+    """🔛 初始化功能：初始化 todos.json 文件"""
     if DATA_FILE.exists():
         print("✅ todos.json 已存在")
     else:

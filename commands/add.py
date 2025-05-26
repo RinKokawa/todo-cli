@@ -11,6 +11,9 @@ def add(
     id: Optional[int] = typer.Option(None, "--id", help="指定任务 ID"),
     quadrant: int = typer.Option(2, "--quadrant","-q", help="优先级象限：1=🔥紧急重要, 2=🧭重要, 3=📤紧急, 4=❌低优先")
 ):
+    # help
+    """➕ 增加功能：增加节点"""
+
     data = load_data()
     todos = data["todos"]
 

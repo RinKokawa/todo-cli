@@ -26,20 +26,19 @@ def main(ctx: typer.Context):
     if ctx.invoked_subcommand is None:
         typer.echo(ctx.get_help())
 
+app.command()(init_command)
+
 app.command()(list_command)
 app.command()(add_command)
 
 app.command()(done_command)
 # 增加do别名
-app.command(name="do")(done_command)
+app.command(name="do",help = "✅ done的别名")(done_command)
 
-app.command()(init_command)
 
 app.command()(delete_command)
 # 增加rm别名
-app.command(name="rm")(delete_command)
-
-
+app.command(name="rm",help = "🗑️ delete的别名")(delete_command)
 app.command()(current_command)
 app.command()(change_command)
 app.command()(import_tapd_command)
@@ -47,7 +46,7 @@ app.command()(rename_command)
 
 app.command()(search_command)
 # ✅ 给 search 添加别名 find
-app.command(name="find")(search_command)
+app.command(name="find",help = "🔍 search别名")(search_command)
 
 app.command()(hide_command)
 app.command()(stats_command)

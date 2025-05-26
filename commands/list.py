@@ -15,8 +15,10 @@ def list(
     color_quadrant: bool = typer.Option(False, "--color", "--quadrant", "-q", help="根据象限颜色高亮显示"),
     root_id: Optional[int] = typer.Argument(None, help="只展示指定 ID 的任务及其子任务")
 ):
+    """📜 列表功能：默认将所有未完成任务列举出来"""
     data = load_data()
     todos = data["todos"]
+    
     current_id = data.get("meta", {}).get("current")
 
     def quadrant_icon(q):

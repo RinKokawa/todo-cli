@@ -6,6 +6,7 @@ def hide(
     ids: list[int] = typer.Argument(..., help="要处理的任务 ID，可以多个"),
     unhide: bool = typer.Option(False, "--unhide", help="取消隐藏这些任务")
 ):
+    """🙈 隐藏功能：通过id隐藏某个节点"""
     data = load_data()
     todos = data["todos"]
 

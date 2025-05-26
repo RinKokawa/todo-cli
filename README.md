@@ -1,10 +1,11 @@
 <!--
   README.md for the “todo” CLI project
-  Next step: add packaging (pyproject.toml / setup.py) and publish to PyPI.
 -->
 
 # 📌 Task CLI
-[![Python Version](https://img.shields.io/badge/python-3.13%2B-blue.svg)](#)  [![License](https://img.shields.io/badge/license-MIT-green.svg)](#)
+[![Python Version](https://img.shields.io/badge/python-3.13%2B-blue.svg)](#)  [![License](https://img.shields.io/badge/license-MIT-green.svg)](#) [![观看演示](https://img.shields.io/badge/视频演示-点击观看-red?logo=YouTube)](https://www.youtube.com/watch?v=dQw4w9WgXcQ) [![Bilibili 演示](https://img.shields.io/badge/B站视频-点击观看-pink?logo=bilibili)](https://www.bilibili.com/video/BV1GJ411x7h7/)
+
+
 
 
 一个基于 [Typer](https://typer.tiangolo.com/) 与 [Rich](https://rich.readthedocs.io/) 的命令行 Todo 工具，支持任务嵌套、树形展示、优先级象限、隐藏与搜索、Git 自动提交以及 TAPD CSV 导入。
