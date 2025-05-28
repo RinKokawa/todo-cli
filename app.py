@@ -14,6 +14,8 @@ from commands.hide import hide as hide_command
 from commands.stats import stats as stats_command
 
 from commands.move import move as move_command
+from commands.language  import  language as language_command
+
 
 
 app = typer.Typer(
@@ -52,6 +54,10 @@ app.command()(stats_command)
 app.command()(move_command)
 
 app.command()(import_tapd_command)
+
+app.command()(language_command)
+
+
 
 if __name__ == "__main__":
     app(prog_name="todo")
