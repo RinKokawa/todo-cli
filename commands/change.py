@@ -10,6 +10,7 @@ def change(
     old_id: int = typer.Argument(..., help="原 ID"),
     new_id: int = typer.Argument(..., help="新 ID")
 ):
+    '''改变id'''
     data = load_data()
     todos = data["todos"]
 

@@ -38,10 +38,9 @@ app.command(name="do",help = "✅ done的别名")(done_command)
 
 app.command()(delete_command)
 # 增加rm别名
-app.command(name="rm",help = "🗑️ delete的别名")(delete_command)
+app.command(name="rm",help = "删除的别名")(delete_command)
 app.command()(current_command)
 app.command()(change_command)
-app.command()(import_tapd_command)
 app.command()(rename_command)
 
 app.command()(search_command)
@@ -52,6 +51,7 @@ app.command()(hide_command)
 app.command()(stats_command)
 app.command()(move_command)
 
+app.command()(import_tapd_command)
 
 if __name__ == "__main__":
     app(prog_name="todo")

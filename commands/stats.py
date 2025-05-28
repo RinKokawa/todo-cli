@@ -3,6 +3,7 @@ from rich.table import Table
 from core.data import load_data
 
 def stats():
+    '''统计'''
     data = load_data()
     todos = data["todos"]
 
