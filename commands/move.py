@@ -7,7 +7,7 @@ def move(
     id: int = typer.Argument(..., help="要移动的任务 ID"),
     new_parent: int = typer.Argument(..., help="新的父任务 ID，设为 0 表示无父节点")
 ):
-    '''移动'''
+    '''🔀 移动'''
     data = load_data()
     todos = data["todos"]
 

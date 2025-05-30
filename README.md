@@ -67,8 +67,8 @@ todo list -q
 ### 设置当前任务
 
 ```bash
-todo current 3
 # “当前”任务会被特殊标记，便于聚焦
+todo current 3
 ```
 
 ### 完成任务
@@ -88,7 +88,7 @@ todo done 2 5 --message "已完成当日目标"
 | `todo change <旧ID> <新ID>` | 修改任务 ID |
 | `todo rename <ID> <新内容>` | 修改任务文本内容 |
 | `todo move <ID> <新父ID>` | 移动任务到另一父任务（0 代表顶层） |
-| `todo hide <ID>…` | 隐藏 / 取消隐藏 任务 |
+| `todo hide <ID>…` | 隐藏 / 取消隐藏 任务|
 | `todo search <关键词>` | 按 ID 或文本模糊搜索 |
 | `todo stats` | 统计各象限已完成/未完成数量 |
 | `todo import-tapd <CSV>` | 从 TAPD 导出的 CSV 文件批量导入任务 |
@@ -146,16 +146,19 @@ todo done 2 5 --message "已完成当日目标"
     ├── core/                  # 数据与 Git 工具模块
     ├── todos.json             # 默认数据文件
     ├── README.md              # 本文件
-    └── setup.py / pyproject.toml  # 打包配置（待添加）
+    └── setup.py               # 打包配置（待添加）
     ```
     
+
 3.  **运行测试**
-    
-    > 如有测试可在此补充，如使用 `pytest`。
-    
+
     ```bash
-    pytest
-    ```
+    python app.py --help
+    python app.py add "测试任务" -q 1 -p 0
+    python app.py list
+    ``` 
+
+
     
 4.  **打包 & 上传 PyPI**
     
@@ -193,4 +196,4 @@ todo done 2 5 --message "已完成当日目标"
 
 ## 📄 License
 
-本项目采用 [MIT License](LICENSE) —— 详情请查看 `LICENSE` 文件。
+本项目采用 [MIT License]() <!-- (LICENSE) -->—— 详情请查看 `LICENSE` 文件。

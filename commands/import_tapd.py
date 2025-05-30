@@ -11,7 +11,7 @@ app = typer.Typer()
 def import_tapd(
     csv_file: Path = typer.Argument(..., help="TAPD 导出的 CSV 文件路径")
 ):
-    '''从csv导入任务 目前支持tapd格式'''
+    '''📥 从csv导入任务 目前仅支持tapd格式'''
     data = load_data()
     todos = data["todos"]
 
