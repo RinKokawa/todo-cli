@@ -746,7 +746,7 @@
       "id": 89,
       "text": "help - 完善help页面",
       "parent": 0,
-      "done": false,
+      "done": true,
       "created_at": "2025-05-13T12:33:22.418052",
       "quadrant": 2,
       "hidden": false
@@ -917,6 +917,15 @@
       "parent": 12,
       "done": false,
       "created_at": "2025-05-28T11:00:08.145134",
+      "quadrant": 2,
+      "hidden": false
+    },
+    {
+      "id": 108,
+      "text": "完善基础help页面",
+      "parent": 89,
+      "done": true,
+      "created_at": "2025-06-03T14:40:02.194085",
       "quadrant": 2,
       "hidden": false
     }
