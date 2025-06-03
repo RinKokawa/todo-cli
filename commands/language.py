@@ -10,7 +10,7 @@ CONFIG_FILE = "config.json"
 
 @app.command()
 def language():
-    '''语言选择'''
+    '''🌍 语言选择'''
     lang = questionary.select(
         "请选择语言 / Please choose your language:",
         choices=[

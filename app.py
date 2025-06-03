@@ -40,7 +40,7 @@ app.command(name="do",help = "✅ done的别名")(done_command)
 
 app.command()(delete_command)
 # 增加rm别名
-app.command(name="rm",help = "删除的别名")(delete_command)
+app.command(name="rm",help = "❌ 删除的别名")(delete_command)
 app.command()(current_command)
 app.command()(change_command)
 app.command()(rename_command)

@@ -8,7 +8,7 @@ def rename(
     id: int = typer.Argument(..., help="要修改内容的任务 ID"),
     text: str = typer.Argument(..., help="新的任务内容")
 ):
-    '''重命名'''
+    '''📝 重命名'''
     data = load_data()
     todos = data["todos"]
 

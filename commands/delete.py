@@ -6,7 +6,7 @@ app = typer.Typer()
 
 @app.command(name="delete", help="🗑️ 删除指定 ID 的任务及其所有子任务")
 def delete(id: int = typer.Argument(..., help="要删除的任务 ID")):
-    """删除"""
+    """❌ 删除"""
     data = load_data()
     todos = data["todos"]
 
