@@ -38,20 +38,20 @@ def done(
 
     save_data(data)
 
-    if message:
-        git_root = find_git_root(Path("."))
-        if git_root:
-            try:
-                subprocess.run(["git", "add", "."], cwd=git_root, check=True)
+    # if message:
+    #     git_root = find_git_root(Path("."))
+    #     if git_root:
+    #         try:
+    #             subprocess.run(["git", "add", "."], cwd=git_root, check=True)
 
-                # 构造一行式提交信息
-                commit_parts = [
-                    f"完成任务 {item['id']}：{item['text']} - {message}"
-                    for item in done_items
-                ]
-                commit_message = "；".join(commit_parts)
+    #             # 构造一行式提交信息
+    #             commit_parts = [
+    #                 f"完成任务 {item['id']}：{item['text']} - {message}"
+    #                 for item in done_items
+    #             ]
+    #             commit_message = "；".join(commit_parts)
 
-                subprocess.run(["git", "commit", "-m", commit_message], cwd=git_root, check=True)
-                print("✅ 已提交 Git 变更")
-            except subprocess.CalledProcessError as e:
-                print(f"⚠️ Git 提交失败：{e}")
+    #             subprocess.run(["git", "commit", "-m", commit_message], cwd=git_root, check=True)
+    #             print("✅ 已提交 Git 变更")
+    #         except subprocess.CalledProcessError as e:
+    #             print(f"⚠️ Git 提交失败：{e}")
