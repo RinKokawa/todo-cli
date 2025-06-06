@@ -928,6 +928,42 @@
       "created_at": "2025-06-03T14:40:02.194085",
       "quadrant": 2,
       "hidden": false
+    },
+    {
+      "id": 109,
+      "text": "init - 如果用户是首次初始化，在UserData里面创建一个.todos用来保存配置",
+      "parent": 70,
+      "done": false,
+      "created_at": "2025-06-06T13:56:07.421801",
+      "quadrant": 2,
+      "hidden": false
+    },
+    {
+      "id": 110,
+      "text": "init - 初始化配置文件，语言从这里选择",
+      "parent": 70,
+      "done": false,
+      "created_at": "2025-06-06T13:56:58.412205",
+      "quadrant": 2,
+      "hidden": false
+    },
+    {
+      "id": 111,
+      "text": "config - 初始化config命令",
+      "parent": 92,
+      "done": false,
+      "created_at": "2025-06-06T14:00:12.980895",
+      "quadrant": 2,
+      "hidden": false
+    },
+    {
+      "id": 112,
+      "text": "config - 在core中创建一个新方法，专门用于各个方法读写配置文件",
+      "parent": 92,
+      "done": false,
+      "created_at": "2025-06-06T14:01:07.171756",
+      "quadrant": 2,
+      "hidden": false
     }
   ]
 }
