@@ -2,10 +2,12 @@ import os
 import requests
 from collections import defaultdict
 
+# 从环境变量中读取 TAPD API 用户名和密码
 api_user = os.getenv("TAPD_API_USER")
 api_password = os.getenv("TAPD_API_PASSWORD")
 workspace_id = "57100817"
 
+# 状态码映射表
 STATUS_MAP = {
     "status_0": "新建",
     "status_1": "设计中",
@@ -17,11 +19,12 @@ STATUS_MAP = {
     "planning": "规划中"
 }
 
+# 获取需求列表
 def fetch_stories(workspace_id):
     url = "https://api.tapd.cn/stories"
     params = {
         "workspace_id": workspace_id,
-        "limit": 200  # 如需更多可分页请求
+        "limit": 200
     }
 
     response = requests.get(url, auth=(api_user, api_password), params=params)
@@ -36,6 +39,7 @@ def fetch_stories(workspace_id):
 
     return [item["Story"] for item in data.get("data", [])]
 
+# 构建父子结构树
 def build_tree(stories):
     story_map = {s["id"]: s for s in stories}
     children_map = defaultdict(list)
@@ -49,15 +53,20 @@ def build_tree(stories):
 
     return children_map
 
+# 打印树状结构
 def print_tree(children_map, parent_id=None, level=0, index_prefix=""):
     children = children_map.get(parent_id, [])
     for i, story in enumerate(children, 1):
         index = f"{index_prefix}{i}" if index_prefix else str(i)
         indent = "    " * level
         status = STATUS_MAP.get(story.get("status", ""), story.get("status", ""))
-        print(f"{indent}{index}. [{status}] {story.get('name')}（创建人: {story.get('creator', '未知')}）")
+        creator = story.get("creator", "未知")
+        created = story.get("created", "未知时间")
+        # modified = story.get("modified", "未知时间")
+        print(f"{indent}{index}. [{status}] {story.get('name')}（创建人: {creator}, 创建时间: {created}）")
         print_tree(children_map, story["id"], level + 1, index + ".")
 
+# 主流程
 def get_stories_as_tree(workspace_id):
     print(f"📡 正在获取项目（ID: {workspace_id}）的需求...")
     stories = fetch_stories(workspace_id)
